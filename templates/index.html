@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+
+    <title>Cancer Predictor</title>
+</head>
+<style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            background: url('https://i.imgur.com/DiiTJ9w.jpg') no-repeat center center fixed; 
+
+        }
+        body, button, input{
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        .container{
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.801);
+            border-radius: 20px;
+        }
+    
+        h1{
+            margin-top: 0;
+            text-align: center;
+        }
+    
+        p{
+            font-weight: 700;
+        }
+        
+        span{
+            font-weight: 300;
+        }
+    
+        h3{
+            text-align: center;
+            margin: 0;
+            font-weight: 700;
+            font-size: .8em;
+        }
+    
+        h4{
+            text-align: center;
+            margin: 0;
+            font-weight: 300;
+            font-size: .7em;
+    
+        }
+        button{
+            float: right;
+        }
+    
+        @media only screen and (max-width: 800px) {
+            .container{
+                width: 300px;
+            }
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1 style = 'font-size: 2.5em;'>CANCER PREDICTOR</h1>        
+        <form action="{{url_for('handle_data')}}" method='post' enctype='multipart/form-data'>
+            <input type="file" name='file' accept='image/*' multiple>
+            <button>Submit</button>
+        </form>
+
+        <h1>{{prediction}}</h1>
+        <h3>Created By DuPont Machine Learning Team</h3>
+        <h4>Reggie, Vincenzo, Brett, Catherine, Khem</h4>
+        <h4>-</h4>
+        <h4 id = 'dataset'>Dataset available at <a href="https://www.kaggle.com/c/histopathologic-cancer-detection">Kaggle</a>
+        </h4>
+    </div>
+</body>
+
+</html>
